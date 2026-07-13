@@ -336,9 +336,9 @@ class DataExtraction:
             diff_smoother (str): Method to smooth the numerical derivative: Available options are 'SG'
                                  for a Savitzky-Golay filter with a window on i% the lenght of the array and
                                  cubic polynomial. Or 'Sp3' for a B cubic spline with smoothing parameter lambda=0.5.
-
-        Returns:
-            A plot of the temperature range to be used in the analysis.
+                                 
+        Returns:       
+            matplotlib.figure.Figure: Plot of the temperature range to be used in the analysis.
         """
         self.seg_DFlis = []
 
@@ -440,6 +440,7 @@ class DataExtraction:
         ax1.grid(True)
 
         plt.show()
+        return fig
 #-----------------------------------------------------------------------------------------------------------
     def Isoconversion(self, d_a = 0.01):    
         """
