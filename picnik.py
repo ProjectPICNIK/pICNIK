@@ -83,8 +83,9 @@ class DataExtraction:
                          to 'utf8', 'utf16','latin1'. For more information on the python standard encoding:
                          (https://docs.python.org/3/library/codecs.html#standard-encodings).
             diff_smoother (str): Method to smooth the numerical derivative: Available options are 'SG'
-                                 for a Savitzky-Golay filter with a window on i% the length of the array and
-                                 cubic polynomial. Or 'Sp3' for a B cubic spline with smoothing parameter lambda=0.5.
+                                 for a Savitzky-Golay filter with a window on 1% or 10% the length of the 
+                                 array (depending on the length itself) and cubic polynomial. Or 'Sp3' for 
+                                 a B cubic spline with smoothing parameter lambda=0.5.
             summary (bool): True for a graphic summary of the data.
 
         Returns:
