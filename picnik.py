@@ -641,6 +641,7 @@ class DataExtraction:
         ax1.set_xlabel('T [K]')
         ax1.set_ylabel(r'$\alpha$')
         ax1.legend()
+        plt.show()
         return fig
 #-----------------------------------------------------------------------------------------------------------
     def get_dadtvsT_plot(self):
@@ -652,14 +653,16 @@ class DataExtraction:
         Returns:       A matplotlib figure plotting conversion rate vs temperature 
                        for each heating rate in attribute Beta.
         """
+        fig, ax1 = plt.subplots(figsize=(12,9))
         for i in range(len(self.DFlis)):
-            plt.plot(self.T[i],
-                     self.da_dt[i],
-                     label=str(np.round(self.Beta[i],decimals=1))+' K/min')
-            plt.xlabel('T [K]')
-            plt.ylabel(r'$\text{d}\alpha/\text{d}t [min$^{-1}]$')
-            plt.legend()
-        return plt.show()
+            ax1.plot(self.T[i],
+                  self.da_dt[i],
+                  label=str(np.round(self.Beta[i],decimals=1))+' K/min')
+        ax1.xlabel('T [K]')
+        ax1.ylabel(r'$\text{d}\alpha/\text{d}t [min$^{-1}]$')
+        ax1.legend()
+        plt.show()
+        return fig
 #-----------------------------------------------------------------------------------------------------------
     def get_avst_plot(self):
         """
@@ -670,14 +673,16 @@ class DataExtraction:
         Returns:       A matplotlib figure plotting conversion vs time for each 
                        heating rate in attribute Beta.
         """
+        fig, ax1 = plt.subplots(figsize=(12,9))
         for i in range(len(self.DFlis)):
-            plt.plot(self.t[i],
-                     self.alpha[i],
-                     label=str(np.round(self.Beta[i],decimals=1))+' K/min')
-            plt.xlabel(self.DFlis[i].columns[0])
-            plt.ylabel(self.DFlis[i].columns[1])
-            plt.legend()
-        return plt.show()
+            ax1.plot(self.t[i],
+                  self.alpha[i],
+                  label=str(np.round(self.Beta[i],decimals=1))+' K/min')
+        ax1.xlabel(self.DFlis[i].columns[0])
+        ax1.ylabel(self.DFlis[i].columns[1])
+        ax1.legend()
+        plt.show()
+        return fig
 #-----------------------------------------------------------------------------------------------------------
     def get_dadtvst_plot(self):
         """
@@ -688,14 +693,16 @@ class DataExtraction:
         Returns:       A matplotlib figure plotting conversion rate vs time for 
                        each heating rate in attribute Beta.
         """
+        fig, ax1 = plt.subplots(figsize=(12,9))
         for i in range(len(self.DFlis)):
-            plt.plot(self.t[i],
-                     self.da_dt[i],
-                     label=str(np.round(self.Beta[i],decimals=1))+' K/min')
-            plt.xlabel(self.DFlis[i].columns[0])
-            plt.ylabel(r'$\alpha$')
-            plt.legend()
-        return plt.show()
+            ax1.plot(self.t[i],
+                  self.da_dt[i],
+                  label=str(np.round(self.Beta[i],decimals=1))+' K/min')
+        ax1.xlabel(self.DFlis[i].columns[0])
+        ax1.ylabel(r'$\alpha$')
+        ax1.legend()
+        plt.show()
+        return fig
 #-----------------------------------------------------------------------------------------------------------
 class ActivationEnergy:
     """
