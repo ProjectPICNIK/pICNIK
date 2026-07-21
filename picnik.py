@@ -633,14 +633,15 @@ class DataExtraction:
         Returns:       A matplotlib figure plotting conversion vs temperature for
                        each heating rate in attribute Beta.
         """
+        fig, ax1 = plt.subplots(figsize=(12,9))
         for i in range(len(self.DFlis)):
-            plt.plot(self.T[i],
-                     self.alpha[i],
-                     label=str(np.round(self.Beta[i],decimals=1))+' K/min')
-            plt.xlabel('T [K]')
-            plt.ylabel(r'$\alpha$')
-            plt.legend()
-        return plt.show()
+            ax1.plot(self.T[i],
+                  self.alpha[i],
+                  label=str(np.round(self.Beta[i],decimals=1))+' K/min')
+        ax1.set_xlabel('T [K]')
+        ax1.set_ylabel(r'$\alpha$')
+        ax1.legend()
+        return fig
 #-----------------------------------------------------------------------------------------------------------
     def get_dadtvsT_plot(self):
         """
